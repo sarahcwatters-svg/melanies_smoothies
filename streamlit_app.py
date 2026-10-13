@@ -53,4 +53,6 @@ smoothiefroot_response = requests.get(
     "https://my.smoothiefroot.com/api/fruit/watermelon"
 )
 
-st.write(smoothiefroot_response.json())
+st.write("Status Code:", smoothiefroot_response.status_code)
+st.write("Response Text:")
+st.text(smoothiefroot_response.text)
