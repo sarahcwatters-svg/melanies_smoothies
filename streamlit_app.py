@@ -50,4 +50,10 @@ if ingredients_list:
 import requests
 smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
 # st.text(smoothiefroot_response.json())
-sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+st.write("Status Code:", smoothiefroot_response.status_code)
+
+if smoothiefroot_response.status_code == 200:
+    st.dataframe(smoothiefroot_response.json())
+else:
+    st.write("SmoothieFruit API is currently unavailable.")
+    st.text(smoothiefroot_response.text)
